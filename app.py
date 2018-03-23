@@ -21,12 +21,12 @@ def user(username):
     '''vs sync''' 
     return 'user = '+username
 
-# @app.route('/get', methods=['GET', 'POST'])
-# def get():
-#     if request.method == 'POST':
-#         return 'post'
-#     else :
-#         return 'get'
+@app.route('/get', methods=['GET', 'POST'])
+def get():
+    if request.method == 'POST':
+        return 'post'
+    else :
+        return 'get'
 
 
 if __name__ == '__main__':
