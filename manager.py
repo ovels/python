@@ -4,10 +4,11 @@ from jinja2 import Template
 app = Flask(__name__)
 
 @app.route('/')
-def hello_world():
+@app.route('/<name>')
+def hello_world(name=None):
     template = Template('Hello {{ name }}!')
-    return template.render(name='John Doe')
-    # return render_template('index.html')
+    #return template.render(name='John Doe')
+    return render_template('index.html')
 
 @app.route('/hello')
 @app.route('/hello/<name>')
