@@ -1,7 +1,7 @@
 from flask import Flask, url_for, request, render_template
 from jinja2 import Template
 
-app = Flask(__name__)
+app = Flask(__name__,static_folder='static', static_url_path='/static')
 
 @app.route('/')
 @app.route('/<name>')
