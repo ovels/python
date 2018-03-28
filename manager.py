@@ -15,6 +15,11 @@ def hello_world(name=None):
 def hello(name=None):
     return render_template('index.html', name=name)
 
+@app.route('/s')
+@app.route('/s/<name>')
+def s(name=None):
+    return render_template('baidu.html', name=name)
+
 @app.route('/user/<username>')
 def user(username):
     #return 'user= %s' % username

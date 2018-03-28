@@ -1,0 +1,33 @@
+.navbar {
+    color: black;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 19px 0 5px 0;
+    padding: 0 15px 0 0;
+}
+
+.baidu {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.searchbox {
+    height: 36px;
+    width: 540px;
+}
+
+.searchbutton {
+    height: 36px;
+    width: 100px;
+}
+
+.footer{
+    color: black;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin: 0 0 20px 0;
+}

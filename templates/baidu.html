@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+
+    <link rel="icon" href="https://www.baidu.com/favicon.ico">
+    <link rel="stylesheet" href="../static/css/baidu.css">
+    <title>百度一下，你就知道</title>
+</head>
+
+<body>
+    <div class="index">
+        <div class="navbar">
+            <a class="mav" href="http://news.baidu.com">新闻</a>
+            <a class="mav" href="http://www.hao123.com">hao123</a>
+            <a class="mav" href="http://map.baidu.com">地图</a>
+            <a class="mav" href="http://v.baidu.com">视频</a>
+            <a class="mav" href="http://tieba.baidu.com">贴吧</a>
+            <a class="mav" href="http://xueshu.baidu.com">学术</a>
+            <a class="mav" href="https://passport.baidu.com/v2/?login&tpl=mn&u=http%3A%2F%2Fwww.baidu.com%2F">登录</a>
+            <a class="mav" href="http://www.baidu.com/gaoji/preferences.html">设置</a>
+            <a class="gen" href="http://www.baidu.com/more/">更多产品</a>
+        </div>
+        <div class="baidu">
+            <div class="logo">
+                <img src="https://www.baidu.com/img/bd_logo1.png" height="129" width="270">
+            </div>
+            <div class="search">
+                <form id="sform">
+
+                    <input class="searchbox" id="searchbox" type="text" id="keyword" />
+                    <button class="searchbutton" id="searchbutton" type="button" onclick="search()">百度一下</button>
+
+                </form>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p id="footer">
+                <a href="#">把百度设为主页</a>
+                <a href="#">关于百度</a>
+                <a href="#">About Baidu</a>
+                <a href="#">百度推广</a>
+            </p>
+        </div>
+    </div>
+
+
+
+    <script type="text/javascript" language="javascript">
+        var text;
+        function search() {
+            text = sform.searchbox.value;
+            window.location.href = "https://www.baidu.com/#ie=UTF-8&wd=" + text;
+        }
+
+    </script>
+</body>
+
+</html>

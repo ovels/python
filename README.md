@@ -1,2 +1,4 @@
 # python
-一些python练习
+
+python web demo
+python3 + flask + uWSGI + jinja2 + Bootstrap
