@@ -10,6 +10,10 @@ def hello_world(name=None):
     #return template.render(name='John Doe')
     return render_template('index.html')
 
+@app.route('/bt')
+def bt():
+    return render_template('bt/Documentation/index.html')
+
 @app.route('/hello')
 @app.route('/hello/<name>')
 def hello(name=None):
