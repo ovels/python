@@ -1,6 +1,13 @@
 from flask import Flask, url_for, request, render_template
 from jinja2 import Template
 
+#mongodb对象转json要用这个转
+from bson.json_util import dumps
+# import sys
+# sys.path.append(r'/www/wwwroot/flaskweb/python')
+# import movieapi
+
+
 app = Flask(__name__,static_folder='static', static_url_path='/static')
 
 @app.route('/')
@@ -31,6 +38,24 @@ def user(username):
     '''vs sync''' 
     return 'user = '+username
 
+
+
+from pymongo import MongoClient
+
+def getValues():
+
+    client = MongoClient('localhost', 38897)
+    db = client.movie_test
+    collection = db.douban25
+    all = collection.find( { } )
+    return all
+
+@app.route('/api/top250')
+def top250():
+    alls = getValues()
+    return dumps(alls)
+    # return str(all)+"111"
+
 @app.route('/get', methods=['GET', 'POST'])
 def get():
     if request.method == 'POST':
@@ -40,4 +65,4 @@ def get():
 
 
 if __name__ == '__main__':
-    app.run(debug=False,host='127.0.0.1',port=5000)
+    app.run(debug=True,host='0.0.0.0',port=5000)
