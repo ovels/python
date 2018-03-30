@@ -18,14 +18,13 @@ def download_page(url):
     data = requests.get(url, headers=headers).content
     return data
 
-mtime = 0
 def get_div(doc):
     soup = BeautifulSoup(doc, 'html.parser')
     # div = soup.find('span ', property="v:runtime")
     # time = str(div)
     # mtime = time
-    print(soup.find('span', property="v:runtime"))
-    time = soup.find('span', property="v:runtime").span
+    
+    time = soup.find('span', property="v:runtime").string
     print(time)
     # name = []  # 名字
     # score = []  # 评分

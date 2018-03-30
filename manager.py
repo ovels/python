@@ -13,7 +13,7 @@ app = Flask(__name__,static_folder='static', static_url_path='/static')
 @app.route('/')
 @app.route('/<name>')
 def hello_world(name=None):
-    template = Template('Hello {{ name }}!')
+    # template = Template('Hello {{ name }}!')
     #return template.render(name='John Doe')
     return render_template('index.html')
 
@@ -22,8 +22,8 @@ def bt():
     return render_template('bt/Documentation/index.html')
 
 @app.route('/hello')
-@app.route('/hello/<name>')
 def hello(name=None):
+    name = 'wangzz'
     return render_template('index.html', name=name)
 
 @app.route('/s')
