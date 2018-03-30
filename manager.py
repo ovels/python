@@ -34,7 +34,7 @@ def s(name=None):
 @app.route('/user/<username>')
 def user(username):
     #return 'user= %s' % username
-    
+        
     return 'user = '+username
 
 
