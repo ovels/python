@@ -35,7 +35,6 @@ def s(name=None):
 def user(username):
     #return 'user= %s' % username
     
-    '''vs sync''' 
     return 'user = '+username
 
 
