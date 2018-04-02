@@ -24,7 +24,7 @@ def bt():
 @app.route('/hello')
 def hello(name=None):
     name = 'wangzz'
-    return render_template('index.html', name=name)
+    return render_template('ins.html', name=name)
 
 @app.route('/s')
 @app.route('/s/<name>')
@@ -63,6 +63,7 @@ def ins20():
     collection = db.mylike.collection
     data = collection.find_one()
     onedata = data['data']
+
     return dumps(onedata)
 
 @app.route('/get', methods=['GET', 'POST'])

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css">
+    <style>
+
+        * { box-sizing: border-box; }
+        body {
+            font-family: sans-serif;
+            background-color: gray;
+        }
+        /* ---- grid ---- */
+        .grid {
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+        /* clearfix */
+        .grid:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        /* ---- grid-item ---- */
+        .grid-sizer, .grid-item
+        {
+            width:22%;
+            margin-right: 3%;
+            margin-top: 3%;
+        }
+        .grid-item
+        {
+            float: left;
+            border-radius: 5px;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+</head>
+<body>
+<h1>Masonry - fluid columnWidth</h1>
+
+<div class="grid">
+    <!--grid-sizer不能删除 删除之后只会显示grid-item-->
+    <div class="grid-sizer"></div>
+    <!--<div class="grid-item grid-item&#45;&#45;height"></div>-->
+    <!--<div class="grid-item"><img src="" alt=""></div>-->
+
+</div>
+
+
+
+
+</body>
+</html>
+<script>
+    window.onload = function () {
+        $.ajax({
+            {#url:'js/ins.json',#}
+            url:'http://ovels.top/api/ins20',
+            type:'GET',
+            dataType:'json',
+            success:function (data) {
+                $.each(data,function (i, item) {
+                    var pictur = item.images.low_resolution;
+                    var url = pictur.url;
+                    var str = '<div class ="grid-item"><img src="'+url+'" alt=""></div>'
+                     $('.grid').append(str)
+
+                })
+                var $grid = $('.grid').masonry({
+                    itemSelector: '.grid-item',
+                    columnWidth: '.grid-sizer',
+                    percentPosition: true
+                });
+               $grid.imagesLoaded().progress(function () {
+                   $grid.masonry('layout')
+               });
+            }
+
+        });
+
+
+
+    }
+
+
+
+</script>
