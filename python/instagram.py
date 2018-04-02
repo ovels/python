@@ -42,6 +42,10 @@ def get_data_from_ins():
 def get_max_like(next):
 
     data = get(next)
+
+    # 这里应该用in，
+    # if 'next_url' not in data['pagination']
+    #     return
     try:
         id = data['pagination']['next_url']
     except:
@@ -59,5 +63,5 @@ def get(url):
     res = r.json()  # return dict
     return res
 
-if __name__ == "__main__":
-    get_data_from_ins()
+# if __name__ == "__main__":
+#     get_data_from_ins()

@@ -55,6 +55,16 @@ def top250():
     return dumps(alls)
     # return str(all)+"111"
 
+
+@app.route('/api/ins20')
+def ins20():
+    client = MongoClient('localhost', 38897)
+    db = client.instagram
+    collection = db.mylike.collection
+    data = collection.find_one()
+    onedata = data['data']
+    return dumps(onedata)
+
 @app.route('/get', methods=['GET', 'POST'])
 def get():
     if request.method == 'POST':
