@@ -15,6 +15,6 @@ class Solution:
 
 # for iii in list2:
     
-def power(x, n):
-    return x**n
-print(power(5,3))
+L = ['Michael', 'Sarah', 'Tracy', 'Bob', 'Jack']
+
+print(L[0:5:2])

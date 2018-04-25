@@ -14,3 +14,13 @@
 #                     return rnums
 #                 else:
 #                     return 
+# import string
+# def normalize(name):
+#     aa = list(map(case,name))
+#     print(aa)
+
+# def case(n):
+#     return n.title()
+
+# L1 = ['adam', 'LISA', 'barT']
+# normalize(L1)

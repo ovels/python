@@ -11,15 +11,17 @@ from bson.json_util import dumps
 app = Flask(__name__,static_folder='static', static_url_path='/static')
 
 @app.route('/')
-@app.route('/<name>')
 def hello_world(name=None):
+     
     # template = Template('Hello {{ name }}!')
     #return template.render(name='John Doe')
     return render_template('index.html')
 
-@app.route('/bt')
-def bt():
-    return render_template('bt/Documentation/index.html')
+from py.upload import get_upload_token
+@app.route('/u')
+def u(t=None):
+    # t = get_upload_token()
+    return render_template('upload.html', token=t)
 
 @app.route('/hello')
 def hello(name=None):
