@@ -5,6 +5,29 @@
     <meta charset="utf-8">
     <title>上传</title>
     <link href="../static/css/upload.css" rel="stylesheet" type="text/css">
+    <script src="../static/js/upload.js"></script>
+    <script>
+        var Qiniu_UploadUrl = "http://up.qiniu.com";
+        console.error('js......')
+        var xhr = new XMLHttpRequest();
+            xhr.open('POST', Qiniu_UploadUrl, true);
+            var formData, startDate;
+            formData = new FormData();
+            formData.append('file', f);
+     
+            xhr.onreadystatechange = function (response) {
+                if (xhr.readyState == 4 && xhr.status == 200 && xhr.responseText != "") {
+                    var blkRet = JSON.parse(xhr.responseText);
+                    console && console.log(blkRet);
+                    $("#dialog").html(xhr.responseText).dialog();
+                } else if (xhr.status != 200 && xhr.responseText) {
+
+                }
+            };
+            startDate = new Date().getTime();
+            $("#progressbar").show();
+            xhr.send(formData);
+    </script>
 </head>
 
 <body>

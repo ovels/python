@@ -34,7 +34,7 @@ $(document).ready(function () {
         }
     });
     //btn_upload
-    $("#upimage").click(function () {
+    $("#btn_upload").click(function () {
         console.error('js......')
         console.info('!fdsfd')
         //普通上传

@@ -68,13 +68,12 @@ def ins20():
 
     return dumps(onedata)
 
-@app.route('/get', methods=['GET', 'POST'])
+from py.upload import up
+@app.route('/up', methods=['GET', 'POST'])
 def get():
-    if request.method == 'POST':
-        return 'post'
-    else :
-        return 'get111'
-
+    file = request.files['file']
+    s = up(file)
+    return s
 
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0',port=5000)
