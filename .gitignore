@@ -1,5 +1,6 @@
-.vscode/sftp.json
+.vscode
 __pycache__/manager.cpython-34.pyc
 .idea
 py/s_data.py
 flaskweb-venv
+

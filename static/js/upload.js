@@ -21,7 +21,8 @@
  *   **********************************************************************************
  */
 $(document).ready(function () {
-    var Qiniu_UploadUrl = "http://up.qiniu.com";
+    // var Qiniu_UploadUrl = "http://ovels.top/up";
+    var Qiniu_UploadUrl = "http://176.122.161.176:5000/up";
     var progressbar = $("#progressbar"),
         progressLabel = $(".progress-label");
     progressbar.progressbar({
