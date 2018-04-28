@@ -1,4 +1,4 @@
-from flask import Flask, url_for, request, render_template
+from flask import Flask, url_for, request, render_template, redirect
 from jinja2 import Template
 
 #mongodb对象转json要用这个转
@@ -36,14 +36,31 @@ def u():
         #             f.write(temp)
         return 'ok'
     
+import os
+from werkzeug import secure_filename
+UPLOAD_FOLDER = './files'
+ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
 @app.route('/up', methods=['GET', 'POST'])
-def get():
-    file = request.files['file']
-    
-    # s = up(file)
-    return s
+def upload_file():
+    if request.method == 'POST':
+        print('postttt')
+        file = request.files['file']
+        if file and allowed_file(file.filename):
+            print('post11111'+file.filename)
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            info = upload_image(file,filename)
+            # return redirect(url_for('uploaded_file',
+            #                         filename=filename))
+            return info+'utl = '+'http://ovokw4elv.bkt.clouddn.com/'+filename
+
+    return render_template('test.html')
 
 @app.route('/hello')
 def hello(name=None):
